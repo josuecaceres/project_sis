@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Paint Canvas</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<table>
+			<tr>
+				<td><canvas width="500" height="500" id="canvas" onmousemove="pintar(event);" onmousedown="activar();" onmouseup="desactivar();"></canvas></td>
+				<td class="herramientas">
+					<a href="#" onclick="lapiz();"><img src="http://reciclay.com.ve/gio/lapiz.png" /></a>
+					<a href="#" onclick="borrador();"><img src="http://reciclay.com.ve/gio/borrador.png" /></a>
+					<div style="width: 10px; height: 10px;" onclick="stamano(10);"></div><br />
+					<div style="width: 20px; height: 20px;" onclick="stamano(20);"></div><br />
+					<div style="width: 30px; height: 30px;" onclick="stamano(30);"></div><br />
+					<div style="width: 40px; height: 40px;" onclick="stamano(40);"></div><br />
+					<input type="color" id="colores" onchange="scolor();"/>
+					<a href="#" download="canvas.png" id="guardarimagen" >Guardar como imagen</a>
+				</td>
+			</tr>
+		</table>
+		<script>
+			document.getElementById("guardarimagen").addEventListener("click", guardari, false);
+		</script>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

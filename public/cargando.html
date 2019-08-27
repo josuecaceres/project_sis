@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title Neon</title>
+    <script>
+        let destino = ''
+        function redireccionar() {
+            location.href = destino
+        }
+
+        window.addEventListener('load', () => {
+            const xhttp = new XMLHttpRequest()
+            xhttp.open("GET", "../info/info.json", true)
+            xhttp.send()
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //let dato = JSON.parse(this.responseText)                                       
+                    destino = 'login.html'
+                    setTimeout("redireccionar()", 5000)
+                }else{
+                    destino = 'instalacion.html'
+                    setTimeout("redireccionar()", 5000)
+                }
+            }
+        });
+    </script>
+    <link rel="stylesheet" href="../css/carga.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="neon-wrapper">
+            <span class="txt">Cargando</span>
+            <span class="gradient"></span>
+            <span class="dod"></span>
+        </div>
+    </div>
+</body>
+
+</html>

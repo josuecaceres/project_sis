@@ -1,0 +1,10 @@
+{
+    "equipo": {
+        "nombre_equipo": "ejc-pc"
+    },
+    "usuario_1": {
+        "nombre_usuario": "ejc17",
+        "password": "1234e",
+        "password_indi": "1+4"
+    }
+}

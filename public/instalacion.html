@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <style>
+        body{
+            background: linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
+            /*background: linear-gradient(90deg, #e74d6b 10%, #8cc8ac 90%);*/
+        }
+        input[type=text]{
+            background: rgba(255, 255, 255, .4);
+        }
+        input[type=password]{
+            background: rgba(255, 255, 255, .4);
+        }
+        input[type=text]:focus{
+            background: rgba(255, 255, 255, .4);
+        }
+        input[type=password]:focus{
+            background: rgba(255, 255, 255, .4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5 pt-5">
+            <div class="col-md-7 mt-5 pt-5">
+                <h1 class="display-4 text-center text-light">Instalación</h1>
+                <hr class="bg-light">
+              
+                <form action="" method="" id="form_ajax" autocomplete="off">
+                    <div class="row form-group">
+                        <label for="equipo" class="col-form-label col-md-4 text-light">Nombre-Equipo</label>
+                        <div class="col-md-8">
+                            <input type="text" name="nombre_equipo" value="" id="equipo" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="nombre" class="col-form-label col-md-4 text-light">Nombre-Usuario</label>
+                        <div class="col-md-8">
+                            <input type="text" name="nombre_usu" value="" id="nombre" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="password" class="col-form-label col-md-4 text-light">Contraseña</label>
+                        <div class="col-md-8">
+                            <input type="password" name="password" value="" id="password" class="form-control" required>
+                        </div>
+                    </div>
+                       <div class="row form-group">
+                        <label for="input type text" class="col-form-label col-md-4 text-light">Indicio-Contraseña</label>
+                        <div class="col-md-8">
+                            <input type="text" name="password_indi" value="" id="password_indi" class="form-control" required>
+                        </div>
+                    </div>
+                    <p class="text-danger text-center mt-3" id="alert" style="display: none; font-size: 20px; font-weight: bold;">Todos los campos son Obligatorioa</p>
+                    <center><button type="button" id="registro" class="btn btn-outline-info btn-lg">Confirmar</button></center>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../scripts/instalacion.js"></script>
+</body>
+</html>

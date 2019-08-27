@@ -1,0 +1,31 @@
+body{
+	box-sizing: border-box;
+	overflow: hidden;
+}
+canvas {
+	border: 4px dashed #000;
+	background: #fff;
+}
+.puntajes {
+	padding-left: 0;
+    margin-top: 0;
+	margin-bottom: 0;
+    list-style: none;
+    display: flex;
+}
+.puntajes li {
+    -webkit-box-flex: 1;
+    -ms-flex: auto;
+    flex: auto;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.363);
+}
+.puntajes p {
+    color: white;
+	text-decoration: none;
+	font-weight: bold;
+    display: block;
+    padding-left: 1em;
+    font-size: 17px;
+}
+

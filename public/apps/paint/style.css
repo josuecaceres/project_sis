@@ -1,0 +1,16 @@
+canvas {
+			border : solid 1px;
+			cursor : url('http://reciclay.com.ve/gio/lapizcursor.gif'), default;
+		}
+		.herramientas {
+			width: 100px;
+		}
+		.herramientas div {
+			background-color: black;
+		}
+		.herramientas div:hover{
+			border: solid red 1px;
+		}
+		.herramientas img:hover{
+			border: solid red 1px;
+		}
