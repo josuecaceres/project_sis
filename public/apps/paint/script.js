@@ -19,13 +19,13 @@ var color = "#000000";
 	}
 	
 	function borrador(){
-		document.getElementById("canvas").style.cursor = "url('http://reciclay.com.ve/gio/borradorcursor.png'), default";
+		document.getElementById("canvas").style.cursor = "url('borrador.png'), default";
 		color = "#FFFFFF";
 		document.getElementById("colores").setAttribute("disabled", "");
 	}
 	
 	function lapiz(){
-		document.getElementById("canvas").style.cursor = "url('http://reciclay.com.ve/gio/lapizcursor.gif'), default";
+		document.getElementById("canvas").style.cursor = "url('lapiz.png'), default";
 		color = document.getElementById("colores").value;
 		document.getElementById("colores").removeAttribute("disabled");
 	}
@@ -35,9 +35,9 @@ var color = "#000000";
 	function stamano(numero) {
 		tamano = numero;
 	}
-	
-	function guardari(){
+	//__________________________________________________________
+	document.getElementById("guardarimagen").addEventListener("click", ()=>{
 		var canvas = document.getElementById("canvas");
 		var imagen = canvas.toDataURL("image/png");
 		this.href = imagen;
-	}
+	});

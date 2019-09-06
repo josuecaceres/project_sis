@@ -1,27 +1,14 @@
 refresh()
 
+let dad
 function refresh(){
   const filles = document.querySelectorAll('.fill')
   const empties = document.querySelectorAll('.empty')
-  const ventanas = document.querySelectorAll('.ventana')
   
-
-  let dad
   // todos los objetos arrastrables (iconos)
   for (const fill of filles) {
     fill.addEventListener('dragstart', dragStart)
     fill.addEventListener('dragend', dragEnd)
-
-    if (fill.parentElement.parentElement.className == 'content'){
-      fill.setAttribute("data-toggle", "tooltip");
-    }else{
-      fill.setAttribute("data-toggle", "tooltipe");
-    }
-  }
-  // todos los objetos arrastrables (ventanas)
-  for (const ventana of ventanas) {
-    ventana.addEventListener('dragstart', dragStart)
-    ventana.addEventListener('dragend', dragEnd)
   }
     
   // todas las casillas vacias
@@ -32,6 +19,43 @@ function refresh(){
     empty.addEventListener('drop', dragDrop)
   }
 
+  //______Botones de ventanas
+  const minins = document.querySelectorAll(".minin")
+  const closes = document.querySelectorAll(".close")
+
+  for (minin of minins){
+    minin.addEventListener("click", ()=>{
+      minin.parentElement.parentElement.parentElement.style.display = "none"
+    })
+  }
+  
+  for (close of closes){
+    close.addEventListener("click", ()=>{
+      switch (close.parentElement.parentElement.parentElement.className) {
+        case "draggable calc":
+          document.querySelector("#calc").style.background = "none"
+          break;
+        case "draggable block":
+          document.querySelector("#block").style.background = "none"
+          break;
+        case "draggable calend":
+          document.querySelector("#calend").style.background = "none"
+          break;
+        case "draggable serpi":
+          document.querySelector("#serpi").style.background = "none"
+          break;
+        case "draggable video":
+          document.querySelector("#video").style.background = "none"
+          break;
+        case "draggable img":
+          document.querySelector("#img").style.background = "none"
+          break;
+        default:
+          break;
+      }
+      close.parentElement.parentElement.parentElement.remove()
+    })
+  }
 }
 
 
@@ -41,7 +65,6 @@ function dragStart() {
   //setTimeout(() => (this.className = 'invisible'), 0)
   this.style.background = ''
   dad = this
-  console.log(dad.parentElement.parentElement.className)
 }
 
 function dragEnd() {
@@ -62,13 +85,13 @@ function dragLeave() {
 }
 
 function dragDrop() {
-  this.className = 'empty'
-  if (dad.parentElement.parentElement.className == 'content'){
-    dad.setAttribute("data-toggle", "tooltipe");
+  if(dad.parentElement.parentElement.className == "prg-s"){
+    this.className = 'empty'
+    
     this.append(dad)
     refresh()
   }else{
-    dad.setAttribute("data-toggle", "tooltip");
+    this.className = 'empty'
     this.append(dad)
     refresh()
   }

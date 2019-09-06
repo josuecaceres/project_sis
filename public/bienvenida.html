@@ -8,20 +8,27 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <style>
+        :root{
+            --fondo-block: url(../media/fondo0.jpg);
+        }
         body {
             /*background: linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);*/
-            background: url("../media/0.jpg");
+            background: var(--fondo-block);
             background-size: cover;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+
         }
 
-        img {
+        .user {
             width: 200px;
             height: 200px;
             border: solid 1px #ffffff;
             border-radius: 100px;
             translate: 50%;
         }
-
         .loader-container {
             position: relative;
             width: 60px;
@@ -80,7 +87,7 @@
 <body>
     <div class="container">
         <div class="row justify-content-center mt-5 pt-5">
-            <img class="mt-5" src="../media/user.png" alt="">
+            <img class="user mt-5" alt="">
         </div>
         <div class="row justify-content-center">
             <h1 class="text-light" id="nom"></h1>
@@ -100,9 +107,16 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     let dato = JSON.parse(this.responseText)
-                    let res = document.querySelector('#nom')
+                    const rootStyles = document.documentElement.style
+                    let res = document.querySelector('#nom'),
+                        user = document.querySelector(".user")
+
                     res.innerHTML = ''
                     res.innerHTML = dato.usuario_1.nombre_usuario
+                    contra = dato.usuario_1.password
+                    indocador = dato.usuario_1.password_indi
+                    user.src = `${dato.usuario_1.avatar}`
+                    rootStyles.setProperty('--fondo-block', `url(${dato.usuario_1.fondo_block})`)
                 }
             }
         });

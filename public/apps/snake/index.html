@@ -8,10 +8,23 @@
   <!-- partial:index.partial.html -->
   <body onkeydown="control(event);">
     <ul class="puntajes">
-      <li><p>Score Maximo: <span>1000</span></p></li>
-      <li><p>Score: <span>1000</span></p></li>
+      <li><p id="scrm">Score Maximo: 0</p></li>
+      <li><p id="scr">Score: 0</p></li>
     </ul>
     <canvas id="canvas" width="540" height="540"></canvas>
+
+    <div id="modal" class="modal">
+        <div class="flex" id="flex">
+            <div class="contenido-modal">
+                <div class="modal-header flex">
+                    <p>Perdiste</p>
+                </div>
+                <div class="modal-body">
+                    <button class="close" id="close">Continuar...</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
   </body>
   <!-- partial -->

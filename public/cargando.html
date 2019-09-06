@@ -2,43 +2,49 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title Neon</title>
-    <script>
-        let destino = ''
-        function redireccionar() {
-            location.href = destino
-        }
-
-        window.addEventListener('load', () => {
-            const xhttp = new XMLHttpRequest()
-            xhttp.open("GET", "../info/info.json", true)
-            xhttp.send()
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    //let dato = JSON.parse(this.responseText)                                       
-                    destino = 'login.html'
-                    setTimeout("redireccionar()", 5000)
-                }else{
-                    destino = 'instalacion.html'
-                    setTimeout("redireccionar()", 5000)
-                }
-            }
-        });
-    </script>
-    <link rel="stylesheet" href="../css/carga.css">
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/intro/cargando.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="neon-wrapper">
-            <span class="txt">Cargando</span>
-            <span class="gradient"></span>
-            <span class="dod"></span>
-        </div>
+  <!-- partial:index.partial.html -->
+  <div class="e-loadholder">
+    <div class="m-loader">
+      <span class="e-text">Cargando</span>
     </div>
+  </div>
+  <div id="particleCanvas-Blue"></div>
+  <div id="particleCanvas-White"></div>
+  <!-- partial -->
+  <script src='../scripts/jquery-3.3.1.js'></script>
+  <script src='../scripts/intro/particles.min.js'></script>
+  <script src="../scripts/intro/cargando.js"></script>
+
+  <script>
+    let destino = ''
+
+    function redireccionar() {
+      location.href = destino
+    }
+
+    window.addEventListener('load', () => {
+      const xhttp = new XMLHttpRequest()
+      xhttp.open("GET", "../info/info.json", true)
+      xhttp.send()
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          //let dato = JSON.parse(this.responseText)                                       
+          destino = 'login.html'
+          setTimeout("redireccionar()", 5000)
+        } else {
+          destino = 'instalacion.html'
+          setTimeout("redireccionar()", 5000)
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

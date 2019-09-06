@@ -1,8 +1,10 @@
 //Variables globales
-var velocidad = 80,
+var velocidad = 100,
 	tamano = 10,
 	score = 0,
 	scoreMax = 0
+	scr = document.querySelector('#scr')
+	scrm = document.querySelector('#scrm')
 
 class objeto {
 	constructor(){
@@ -13,7 +15,7 @@ class objeto {
 		var dify = Math.abs(this.y - obj.y)
 		if(difx >= 0 && difx < tamano && dify >= 0 && dify < tamano){
 			score ++
-			console.log(score)
+			scr.textContent = `Score : ${score}`
 			return true
 		} else {
 			return false
@@ -124,9 +126,14 @@ function findeJuego(){
 	ejey = true
 	cabeza = new Cola(20,20)
 	comida = new Comida()
-	alert("Perdiste")
-	scoreMax = score
+	//alert("Perdiste")
+	modal.style.display = 'block'
+	score > scoreMax
+		? scoreMax = score
+		: null
+	scrm.textContent = `Score Maximo: ${scoreMax}`
 	score = 0
+	scr.textContent = `Score : ${score}`
 }
 function choquepared(){
 	if(cabeza.x < 0 || cabeza.x > 530 || cabeza.y < 0 || cabeza.y > 530){
@@ -169,3 +176,18 @@ function main(){
 	}
 }
 setInterval("main()", velocidad)
+
+//modal______________________________________________
+let modal = document.getElementById('modal'),
+    flex = document.getElementById('flex'),
+	cerrar = document.getElementById('close')
+	
+cerrar.addEventListener('click', ()=>{
+    modal.style.display = 'none'
+})
+
+window.addEventListener('click', e =>{	
+	e.target === modal
+		? modal.style.display = 'none'
+		: null
+})

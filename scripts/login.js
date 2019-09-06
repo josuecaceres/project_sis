@@ -5,11 +5,16 @@ window.addEventListener('load', () => {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             let dato = JSON.parse(this.responseText)
-            let res = document.querySelector('#nom')
+            const rootStyles = document.documentElement.style
+            let res = document.querySelector('#nom'),
+                user = document.querySelector(".user")
+
             res.innerHTML = ''
             res.innerHTML = dato.usuario_1.nombre_usuario
             contra = dato.usuario_1.password
             indocador = dato.usuario_1.password_indi
+            user.src = `${dato.usuario_1.avatar}`
+            rootStyles.setProperty('--fondo-block', `url(${dato.usuario_1.fondo_block})`)
         }
     }
 });

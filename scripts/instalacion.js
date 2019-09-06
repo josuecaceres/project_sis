@@ -24,7 +24,7 @@ function crear(){
     
             xhttp.send("nombre_equipo="+N_E+"&nombre_usu="+N_U+"&password="+C_U+"&password_indi="+IC_U)
             //console.log(("nombre_equipo="+N_E+"&nombre_usu="+N_U+"&password="+C_U+"&password_indi="+IC_U))
-            
+            document.querySelector(".spinner-grow").style.display = "inline-block"
             setTimeout("redireccionar()", 5000);
         }else{
             document.getElementById('alert').style.display = "block"

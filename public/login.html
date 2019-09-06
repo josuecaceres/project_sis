@@ -9,14 +9,20 @@
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/fontawesome.css">
     <style>
-        body {
+        :root{
+            --fondo-block: url(../media/fondo0.jpg);
+        }
+        body{
             /*background: linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);*/
-            background: url("../media/0.jpg");
+            background: var(--fondo-block);
             background-size: cover;
             background-repeat: no-repeat;
-        }
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
 
-        img {
+        }
+        .user {
             width: 200px;
             height: 200px;
             border: solid 1px #ffffff;
@@ -24,16 +30,48 @@
             translate: 50%;
         }
         input[type="text"],input[type="password"]{
-            background-color: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(238, 238, 238, 0.27);
+            background-color: rgba(255, 255, 255, .2);            
             color: #FFFFFF;
             translate: 50%;
         }
         input[type="text"]:focus,input[type="password"]:focus{
             border-color: #FFFFFF;
-            background-color: rgba(255, 255, 255, 0.07);
+            background-color: rgba(255, 255, 255, .3);
             color: #FFFFFF;
             translate: 50%;
+        }
+        .boton{
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.39);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 0 60px 15px;
+        }
+        .boton .content{
+            position: absolute;
+            bottom: 55px;
+            width: 140px;
+            background: #fff;
+            box-sizing: border-box;
+            border-radius: 4px;
+            visibility: hidden;
+            opacity: 0;
+            transition: .5s;
+            transform: translateX(-45%) translateY(-50px);
+        }
+
+        .boton:hover{
+            color: #FFFFFF;
+        }
+        .boton:hover .content{
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(-45%) translateY(10px);
+        }
+        .boton:hover .content a{
+            border-bottom: 1px solid rgba(0, 0, 0, 0.288);
         }
     </style>
 </head>
@@ -41,7 +79,7 @@
 <body>
     <div class="container">
         <div class="row justify-content-center mt-5 pt-5">
-            <img class="mt-5" src="../media/user2.jpg" alt="">
+            <img class="user mt-5" src="" alt="">
         </div>
         <div class="row justify-content-center">
             <h1 class="text-light" id="nom"> </h1>
@@ -53,19 +91,29 @@
                     <div class="input-group-text" id="unlock"><i class="fas fa-eye"></i></div>
                 </div>
             </div>
-            <p class="text-danger text-center mt-3" id="indicador" style="display: none; font-size: 17px;">Indicio de contraseña: <span class="text-primary" style="font-size:20px;">dasdas</span></p>
+            <p class="text-danger text-center mt-3" id="indicador" style="display: none; font-size: 17px; font-weight: bold;">Indicio de contraseña: <span class="text-primary" style="font-size:20px;">dasdas</span></p>
         </div>
         <div class="row justify-content-center" id="mal" style="display: none">
             <div class="col-12 mb-2 mt-2 pt-2">
-                <h4 class="text-warning text-center">Contraseña incorecta, vuelve a intentarlo</h4>
+                <h4 class="text-warning text-center ">Contraseña incorecta, vuelve a intentarlo</h4>
             </div>
             <div class="col-12 mb-2 mt-2 pt-2">
                 <center><button class="btn btn-outline-info btn-lg" id="volver">Aceptar</button></center>
             </div>
         </div>
+        <button type="button" id="apaga" class="boton"><i class="fas fa-power-off fa-2x"></i>
+            <div class="content">
+                <a href="../" class="text-dark btn btn-block">Apagar</a>
+                <a href="../Deephe_OS.html" class="text-dark btn btn-block">Reiniciar</a>
+            </div>
+        </button>
     </div>
+
+
     <script src="../scripts/all.js"></script>
     <script src="../scripts/login.js"></script>
+
+
 </body>
 
 </html>

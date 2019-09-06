@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ambient Background</title>
+  <!--<link rel="stylesheet" href="./normalize.min.css">-->
+  <link rel="stylesheet" href="./css/intro/deephe.css">
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <canvas id="projector">Your browser does not support the Canvas element.</canvas>
+  <canvas id="scene"></canvas>
+  <!-- partial -->
+  <script src='./scripts/intro/easeljs-0.7.1.min.js'></script>
+  <script src='./scripts/intro/TweenMax.min.js'></script>
+  <script src="./scripts/intro/deephe.js"></script>
+
+  <script>
+    window.addEventListener("dblclick", () =>{
+      location.href = "public/cargando.html";
+    })
+  </script>
+</body>
+
+</html>

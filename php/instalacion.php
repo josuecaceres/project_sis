@@ -4,7 +4,10 @@
         "usuario_1" => array(
             "nombre_usuario" => htmlspecialchars($_POST["nombre_usu"]),
             "password" => htmlspecialchars($_POST["password"]),
-            "password_indi" => htmlspecialchars($_POST["password_indi"])
+            "password_indi" => htmlspecialchars($_POST["password_indi"]),
+            "avatar" => "../media/user2.jpg",
+            "fondo" => "../media/fondo0.jpg",
+            "fondo_block" => "../media/fondo0.jpg"
         )
     );
     echo json_encode($info);
