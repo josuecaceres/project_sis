@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/stile.css">
+</head>
+
+<body>
+    <label for="file-upload" class="bot" style="display: block;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <p>Boton</p>
+    </label>
+    <input id="file-upload" onchange='cambiar()' type="file" style="display: none;"/>
+
+    <div id="visorArchivo" style="display: none;">
+        <!--Aqui se desplegará el fichero-->
+    </div>
+
+    <script>
+        let bot = document.querySelector('.bot')
+
+        function cambiar() {
+            bot.classList.add("active")
+            let spans = document.querySelectorAll('span')
+            for (span of spans) {
+                span.style.display = "none"
+            }
+            bot.style.border = "2px solid"
+            bot.style.borderLeftColor = "white"
+
+            setTimeout("validarExt()", 4000);
+        }
+
+        function validarExt() {
+            var archivoInput = document.getElementById('file-upload');
+            var archivoRuta = archivoInput.value;
+            //var extPermitidas = /(.pdf)$/i;
+            var extPermitidas = /(.pdf|.PDF)$/i;
+            if (!extPermitidas.exec(archivoRuta)) {
+                alert('Asegurese de haber seleccionado un PDF');
+                archivoInput.value = '';
+                document.querySelector('.bot').classList.remove("active");
+                let spans = document.querySelectorAll('span')
+                for (span of spans) {
+                    span.style.display = "block"
+                }
+                bot.style.border = "none"
+                bot.style.borderLeftColor = "#2196f3"
+
+                return false;
+            } else {
+                //PRevio del PDF
+                if (archivoInput.files && archivoInput.files[0]) {
+                    var visor = new FileReader();
+                    visor.onload = function (e) {
+                        document.getElementById('visorArchivo').innerHTML =
+                            '<embed src="' + e.target.result + '" width="600" height="475" />';
+                        document.querySelector('.bot').style.display = "none";
+                        document.getElementById('visorArchivo').style.display = "block";
+                    };
+                    visor.readAsDataURL(archivoInput.files[0]);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

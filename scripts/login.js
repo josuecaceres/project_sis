@@ -1,3 +1,5 @@
+const rootStyles = document.documentElement.style
+
 window.addEventListener('load', () => {
     const xhttp = new XMLHttpRequest()
     xhttp.open("GET", "../info/info.json", true)
@@ -5,10 +7,8 @@ window.addEventListener('load', () => {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             let dato = JSON.parse(this.responseText)
-            const rootStyles = document.documentElement.style
             let res = document.querySelector('#nom'),
                 user = document.querySelector(".user")
-
             res.innerHTML = ''
             res.innerHTML = dato.usuario_1.nombre_usuario
             contra = dato.usuario_1.password
@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
 
 //_________________________________________________________
 function redireccionar() {
-    location.href = "bienvenida.html";
+    location.href = "escritorio.html";
 }
 
 //________________________________________________________
@@ -29,7 +29,9 @@ let co = document.querySelector("#contra")
 let ojo = document.querySelector("#unlock")
 let bien = document.querySelector("#bien")
 let mal = document.querySelector("#mal")
+let paso = document.querySelector("#paso")
 let indi = document.querySelector("span")
+let blur = document.querySelector(".glass")
 
 co.addEventListener("keypress", login)
 ojo.addEventListener("click", unlock)
@@ -52,7 +54,11 @@ function unlock() {
 function login(event) {
     if (event.keyCode == 13) {
         if (co.value == contra) {
-            setTimeout("redireccionar()", 2000);            
+            bien.style.display = "none"
+            paso.style.display = "block"
+            document.getElementById('apaga').style.display = "none"
+            rootStyles.setProperty('--filtro', 'blur(0px)')
+            setTimeout("redireccionar()", 3000);            
         }else{
             bien.style.display = "none"
             mal.style.display = "block"

@@ -1,0 +1,113 @@
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.bot {
+  width: 220px;
+  height: 60px;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  background: transparent;
+  outline: none;
+  position: relative;
+  display: inline-block;
+  color: #2196f3;
+  letter-spacing: 4px;
+  overflow: hidden;
+  transition: all ease .2s;
+}
+
+.active {
+  font-size: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid linear-gradient(90deg, transparent, #2196f3);
+  border-left-color: transparent;
+  animation: rotate 1.4s ease .5s infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(360deg);
+  }
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.bot span {
+  position: absolute;
+  display: block;
+}
+
+.bot span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #2196f3);
+}
+
+.bot:hover span:nth-child(1) {
+  left: 100%;
+  transition: 1s;
+  animation: infinite;
+}
+
+.bot span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #2196f3);
+}
+
+.bot:hover span:nth-child(3) {
+  right: 100%;
+  transition: 1s;
+  animation: infinite;
+  transition-delay: .5s;
+}
+
+.bot span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #2196f3);
+}
+
+.bot:hover span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  animation: infinite;
+  transition-delay: .25s;
+}
+
+.bot span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #2196f3);
+}
+
+.bot:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+  animation: infinite;
+  transition-delay: .75s;
+}

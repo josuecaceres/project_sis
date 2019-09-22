@@ -31,3 +31,5 @@ document.getElementById('reiniciar').addEventListener('click', ()=>{
 document.getElementById('c_sesion').addEventListener('click', ()=>{
     location.href = "./login.html";
 })
+
+

@@ -1,0 +1,22 @@
+/* This is purely for the demo */
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.container {
+  max-width: 100%;
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.plyr {
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.actions{
+  display: none;
+}

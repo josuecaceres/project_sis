@@ -133,11 +133,11 @@ You should have received a copy of the GNU General Public License along with thi
 									}).append($('<a/>',{
 											"href":"#uploadImageBar",
 											"data-toggle":"tab"
-										}).html("From Computer")
+										}).html("Desde el equipo")
 							)).append($('<li/>').append($('<a/>',{
 											"href":"#imageFromLinkBar",
 											"data-toggle":"tab"
-										}).html("From URL")));
+										}).html("&nbsp;&nbsp;Desde URL")));
 
 			var tabContent 		= $("<div/>", {class:"tab-content"});
 			var uploadImageBar  = $("<div/>",{
@@ -151,7 +151,7 @@ You should have received a copy of the GNU General Public License along with thi
 				for (var i = 0, f; f = files[i]; i++) {
 					//Loop thorugh all the files
 					if(!f.type.match('image.*') || !f.name.match(/(?:gif|jpg|png|jpeg)$/)){ //Process only Images
-						methods.showMessage.apply(this,["imgErrMsg","Invalid file type"]);
+						methods.showMessage.apply(this,["imgErrMsg","Tipo de archivo invalido"]);
 						continue;
 					}
 					var reader = new FileReader();
@@ -248,25 +248,25 @@ You should have received a copy of the GNU General Public License along with thi
 						}).append($('<div/>',{ //Left input Container Div
 							id :"tblInputsLeft"+idExtn,
 							class:"col-xs-12 col-sm-6 col-md-6 col-lg-6"
-							}).append($('<label/>',{ for:"tblRows"+idExtn,	text:"Rows"}
+							}).append($('<label/>',{ for:"tblRows"+idExtn,	text:"Filas"}
 							)).append($('<input/>',{
 								id:"tblRows"+idExtn,
 								type:"text",
 								class:"form-control form-control-width",
 								value:2
-							})).append($('<label/>',{ for:"tblColumns"+idExtn,	text:"Columns"}
+							})).append($('<label/>',{ for:"tblColumns"+idExtn,	text:"Columnas"}
 							)).append($('<input/>',{
 								id:"tblColumns"+idExtn,
 								type:"text",
 							 	class:"form-control form-control-width",
 							 	value:2
-							})).append($('<label/>',{ for:"tblWidth"+idExtn, text:"Width"}
+							})).append($('<label/>',{ for:"tblWidth"+idExtn, text:"Ancho"}
 							)).append($('<input/>',{
 								id:"tblWidth"+idExtn,
 								type:"text",
 								class:"form-control form-control-width",
 								value:400
-							})).append($('<label/>',{ for:"tblHeight"+idExtn, text:"Height"}
+							})).append($('<label/>',{ for:"tblHeight"+idExtn, text:"Alto"}
 							)).append($('<input/>',{ 
 								id:"tblHeight"+idExtn,
 								type:"text",
@@ -275,25 +275,25 @@ You should have received a copy of the GNU General Public License along with thi
 						).append($('<div/>',{ //Right input Container Div
 							id :"tblInputsRight"+idExtn,
 							class:"col-xs-12 col-sm-6 col-md-6 col-lg-6"
-							}).append($('<label/>',{ for:"tblAlign"+idExtn, text:"Alignment"}
+							}).append($('<label/>',{ for:"tblAlign"+idExtn, text:"Alienar"}
 							)).append($('<select/>',{ id:"tblAlign"+idExtn, class:"form-control form-control-width"}
-								).append($('<option/>',{ text:"Choose", value:""}
-								)).append($('<option/>',{ text:"Left", value:"left"}
-								)).append($('<option/>',{ text:"Center", value:"center"}
-								)).append($('<option/>',{ text:"Right",	value:"right"}))
-							).append($('<label/>',{	for:"tblBorder"+idExtn, text:"Border size"}
+								).append($('<option/>',{ text:"Elegir", value:""}
+								)).append($('<option/>',{ text:"Izquierda", value:"left"}
+								)).append($('<option/>',{ text:"Centro", value:"center"}
+								)).append($('<option/>',{ text:"Derecha",	value:"right"}))
+							).append($('<label/>',{	for:"tblBorder"+idExtn, text:"Tamaño de Borde"}
 							)).append($('<input/>',{ 
 								id:"tblBorder"+idExtn,
 								type:"text",
 								class:"form-control form-control-width",
 								value:1
-							})).append($('<label/>',{ for:"tblCellspacing"+idExtn,	text:"Cell spacing"}
+							})).append($('<label/>',{ for:"tblCellspacing"+idExtn,	text:"Espacio de Celda"}
 							)).append($('<input/>',{
 								id:"tblCellspacing"+idExtn,
 								type:"text", 
 								class:"form-control form-control-width",
 								value:1
-							})).append($('<label/>',{ for:"tblCellpadding"+idExtn,	text:"Cell padding"}
+							})).append($('<label/>',{ for:"tblCellpadding"+idExtn,	text:"Margen de Celda"}
 							)).append($('<input/>',{
 								id:"tblCellpadding"+idExtn,
 								type:"text",
@@ -517,35 +517,35 @@ You should have received a copy of the GNU General Public License along with thi
 							  'screeneffects':true,
 
 							  'fonts'	: { "select":true,
-											"default": "Font",
-											"tooltip": "Fonts",
+											"default": "Fuentes",
+											"tooltip": "Fuentes",
 											"commandname": "fontName",
 											"custom":null },
 
 							  'styles'	: { "select":true,
-											"default": "Formatting",
-											"tooltip": "Paragraph Format",
+											"default": "Formato",
+											"tooltip": "Formato de parrafo",
 											"commandname": "formatBlock",
 												"custom":null },
 
 							 'font_size': {	"select":true,
-											"default": "Font size",
-											"tooltip": "Font Size",
+											"default": "Tamaño de fuente",
+											"tooltip": "Tamaño de fuente",
 											"commandname":"fontSize", 
 											"custom":null },
 
 							  'color'	: { "text":"A",
 											"icon": "fa fa-font", 
-											"tooltip": "Text/Background Color",
+											"tooltip": "Texto/Fondo Color",
 											"commandname":null,
 											"custom":function(button){
 													var editor = $(this);
 													var flag = 0;
 													var paletteCntr   = $('<div/>',{id:"paletteCntr",class:"activeColour", css :{"display":"none","width":"335px"}}).click(function(event){event.stopPropagation();});
 													var paletteDiv    = $('<div/>',{id:"colorpellete"});
-													var palette       = $('<ul />',{id:"color_ui"}).append($('<li />').css({"width":"145px","display":"Block","height":"25px"}).html('<div>Text Color</div>'));
+													var palette       = $('<ul />',{id:"color_ui"}).append($('<li />').css({"width":"145px","display":"Block","height":"25px"}).html('<div>Color de Texto</div>'));
 													var bgPalletteDiv = $('<div/>',{id:"bg_colorpellete"});
-													var bgPallette    = $('<ul />',{id:"bgcolor_ui"}).append($('<li />').css({"width":"145px","display":"Block","height":"25px"}).html('<div>Background Color</div>'));
+													var bgPallette    = $('<ul />',{id:"bgcolor_ui"}).append($('<li />').css({"width":"145px","display":"Block","height":"25px"}).html('<div>Color de Fondo</div>'));
 													if(editor.data("colorBtn")){
 														flag = 1;
 														editor.data("colorBtn",null);
@@ -592,87 +592,87 @@ You should have received a copy of the GNU General Public License along with thi
 							
 							  'bold'	: { "text": "B", 
 											"icon": "fa fa-bold", 
-											"tooltip": "Bold", 
+											"tooltip": "Negrita", 
 											"commandname":"bold", 
 											"custom":null },
 
 						      'italics'	: { "text":"I", 
 											"icon":"fa fa-italic", 
-											"tooltip":"Italics", 
+											"tooltip":"Italica", 
 											"commandname":"italic",
 											"custom":null },
 
 						     'underline': { "text":"U", 
 											"icon":"fa fa-underline", 
-											"tooltip":"Underline", 
+											"tooltip":"Subrayado", 
 											"commandname":"underline",
 											"custom":null },
 											
 						     'strikeout': { "text": "Strikeout", 
 											"icon":"fa fa-strikethrough", 
-											"tooltip": "Strike Through", 
+											"tooltip": "Tachado", 
 											"commandname":"strikeThrough", 
 											"custom":null },
 
 						     'ol'		: { "text": "N", 
 											"icon": "fa fa-list-ol", 
-											"tooltip": "Insert/Remove Numbered List", 
+											"tooltip": "Insertar/Remover Numero Lista", 
 											"commandname":"insertorderedlist", 
 											"custom":null },
 
 						     'ul'		: { "text": "Bullet", 
 											"icon": "fa fa-list-ul", 
-											"tooltip": "Insert/Remove Bulleted List", 
+											"tooltip": "Inserta/Remover item Lista", 
 											"commandname":"insertunorderedlist", 
 											"custom":null },
 
 						     'undo'		: { "text": "undo", 
 											"icon": "fa fa-undo", 
-											"tooltip": "Undo", 
+											"tooltip": "Deshacer", 
 											"commandname":"undo", 
 											"custom":null },
 
 						     'redo'		: { "text": "redo", 
 											"icon": "fa fa-repeat", 
-											"tooltip": "Redo", 
+											"tooltip": "Rehacer", 
 											"commandname":"redo", 
 											"custom":null },
 
 						     'l_align'	: { "text": "leftalign", 
 											"icon": "fa fa-align-left", 
-											"tooltip": "Align Left", 
+											"tooltip": "Alinear - Izquierda", 
 											"commandname":"justifyleft", 
 											"custom":null },
 
 						     'r_align'	: { "text": "rightalign", 
 											"icon": "fa fa-align-right", 
-											"tooltip": "Align Right", 
+											"tooltip": "Alinear - Derecha", 
 											"commandname":"justifyright", 
 											"custom":null },
 
 						     'c_align'	: { "text": "centeralign", 
 											"icon": "fa fa-align-center", 
-											"tooltip": "Align Center", 
+											"tooltip": "Centar", 
 											"commandname":"justifycenter", 
 											"custom":null },
 
 						     'justify'	: { "text": "justify", 
 											"icon": "fa fa-align-justify", 
-											"tooltip": "Justify", 
+											"tooltip": "Justificar", 
 											"commandname":"justifyfull", 
 											"custom":null },
 
 							  'unlink'	: { "text": "Unlink", 
 											"icon": "fa fa-unlink", 
-											"tooltip": "Unlink", 
+											"tooltip": "Eliminar Link", 
 											"commandname":"unlink", 
 											"custom":null },
 
 						   'insert_link': { "modal": true,
 						   					"modalId": "InsertLink", 
 											"icon":"fa fa-link", 
-											"tooltip": "Insert Link", 
-											"modalHeader": "Insert Hyperlink",
+											"tooltip": "Insertar Link", 
+											"modalHeader": "Insertar Hyperlink",
 											"modalBody": $('<div/>',{   class:"form-group"
 																	}).append($('<div/>',{
 																		id :"errMsg"
@@ -680,13 +680,13 @@ You should have received a copy of the GNU General Public License along with thi
 																		type:"text",
 																		id:"inputText",
 																		class:"form-control form-control-link ",
-																		placeholder:"Text to Display",
+																		placeholder:"Texto",
 																	})).append($('<input/>',{
 																		type:"text",
 																		id:"inputUrl",
 																		required:true,
 																		class:"form-control form-control-link",
-																		placeholder:"Enter URL"
+																		placeholder:"URL"
 																	})),
 											"beforeLoad":function(){ 
 												editorObj = this;
@@ -703,11 +703,11 @@ You should have received a copy of the GNU General Public License along with thi
 												var targetURL  = $('#inputUrl').val();
 												var range      = $(editorObj).data('currentRange');
 												if(targetURL ==''){
-													methods.showMessage.apply(editorObj,["errMsg","Please enter url"]);
+													methods.showMessage.apply(editorObj,["errMsg","URL no valida"]);
 													return false;
 												}												
 												if(!targetURL.match(urlPattern)){
-													methods.showMessage.apply(editorObj,["errMsg","Enter valid url"]);
+													methods.showMessage.apply(editorObj,["errMsg","URL no valida"]);
 													return false;
 												}													
 												if(range=='' && targetText==''){ 
@@ -731,8 +731,8 @@ You should have received a copy of the GNU General Public License along with thi
 						   'insert_img'	: { "modal": true,
 						   					"modalId": "InsertImage", 
 											"icon":"fa fa-picture-o", 
-											"tooltip": "Insert Image", 
-											"modalHeader": "Insert Image",
+											"tooltip": "Insertar Imagen", 
+											"modalHeader": "Insertar Imagen",
 											"modalBody": methods.imageWidget.apply(this),
 											"beforeLoad":function(){ 
 												$('#imageURL').val("");
@@ -751,7 +751,7 @@ You should have received a copy of the GNU General Public License along with thi
 													}
 												}
 												else{
-													methods.showMessage.apply(this,["imgErrMsg","Please select an image"]);
+													methods.showMessage.apply(this,["imgErrMsg","por favor selecciona una imagen"]);
 													return false;
 												}
 												$("#InsertImage").modal("hide");
@@ -761,8 +761,8 @@ You should have received a copy of the GNU General Public License along with thi
 						'insert_table'	: { "modal": true,
 					   						"modalId": "InsertTable", 
 											"icon":"fa fa-table", 
-											"tooltip": "Insert Table", 
-											"modalHeader": "Insert Table",
+											"tooltip": "Insertar Tabla", 
+											"modalHeader": "Insertar Tabla",
 											"modalBody":methods.tableWidget.apply(this),
 											"beforeLoad":function(){ 													
 												$('#tblForm').each (function(){ this.reset(); });																																	
@@ -831,13 +831,13 @@ You should have received a copy of the GNU General Public License along with thi
 
 						   'hr_line'	: { "text": "HR", 
 											"icon":"fa fa-minus", 
-											"tooltip": "Horizontal Rule", 
+											"tooltip": "Insertar linea", 
 											"commandname":"insertHorizontalRule", 
 											"custom":null },
 
 						   'block_quote': { "text": "Block Quote", 
 											"icon":"fa fa-quote-right", 
-											"tooltip": "Block Quote", 
+											"tooltip": "Cita", 
 											"commandname":null, 
 											"custom":function(){ 
 												methods.setStyleWithCSS.apply(this);
@@ -851,19 +851,19 @@ You should have received a copy of the GNU General Public License along with thi
 
 						   'indent'		: { "text": "Indent", 
 											"icon":"fa fa-indent", 
-											"tooltip": "Increase Indent", 
+											"tooltip": "Aumentar Sangria", 
 											"commandname":"indent", 
 											"custom":null },
 
 						   'outdent'	: { "text": "Outdent", 
 											"icon":"fa fa-outdent", 
-											"tooltip": "Decrease Indent", 
+											"tooltip": "Reducir Sangria", 
 											"commandname":"outdent", 
 											"custom":null },
 
 							'print'		: { "text": "Print", 
 											"icon":"fa fa-print", 
-											"tooltip": "Print", 
+											"tooltip": "Imprimir", 
 											"commandname":null, 
 											"custom":function(){
 											oDoc = $(this).data("editor");
@@ -875,13 +875,13 @@ You should have received a copy of the GNU General Public License along with thi
 
 							'rm_format'	: { "text": "Remove format", 
 											"icon":"fa fa-eraser", 
-											"tooltip": "Remove Formatting", 
+											"tooltip": "Eliminar Formato", 
 											"commandname":"removeformat", 
 											"custom":null },
 
 							'select_all': { "text": "Select all", 
 											"icon":"fa fa-file-text", 
-											"tooltip": "Select All", 
+											"tooltip": "Seleccionar Todo", 
 											"commandname":null, 
 											"custom":function(){ 
 												document.execCommand("selectall", null, null);												    
@@ -889,7 +889,7 @@ You should have received a copy of the GNU General Public License along with thi
 
 							'togglescreen':{ "text": "Toggle Screen",
 											 "icon": "fa fa-arrows-alt",
-											 "tooltip": "Toggle Screen",
+											 "tooltip": "Pantalla completa",
 											 "commandname":null,
 											 "custom":function(button, parameters){
 												$(this).data("editor").parent().toggleClass('fullscreen');
@@ -906,7 +906,7 @@ You should have received a copy of the GNU General Public License along with thi
 
 							'splchars'	: { "text": "S", 
 											"icon": "fa fa-asterisk", 
-											"tooltip": "Insert Special Character", 
+											"tooltip": "Inserta Caracter Especial", 
 											"commandname":null, 
 											"custom":function(button){
 													methods.restoreIESelection.apply(this);
@@ -945,7 +945,7 @@ You should have received a copy of the GNU General Public License along with thi
 
 							'source'	: { "text": "Source", 
 											"icon":"fa fa-code", 
-											"tooltip": "Source", 
+											"tooltip": "Ver codigo", 
 											"commandname":null, 
 											"custom":function(button, params){ methods.getSource.apply(this, [button, params]) } },
 											"params": {"obj":null},
@@ -1005,7 +1005,7 @@ You should have received a copy of the GNU General Public License along with thi
 				'togglescreen':true
 			},options);
 
-	       	var containerDiv = $("<div/>",{ class : "row-fluid Editor-container" });
+	       	var containerDiv = $("<div/>",{ class : "row-fluid Editor-container fullscreen" });
 			var $this = $(this).hide();	       	
 	       	$this.after(containerDiv); 
 
@@ -1013,7 +1013,7 @@ You should have received a copy of the GNU General Public License along with thi
 								  		class : "row-fluid"
 							}).prependTo(containerDiv);
 	       	var editor  = $( "<div/>",{	class : "Editor-editor",
-										css : {overflow: "auto"},
+										css : {overflow: "auto",height: "572px"},
 										contenteditable:"true"
 						 	}).appendTo(containerDiv);
 			var statusBar = $("<div/>", {	id : "statusbar",
@@ -1028,8 +1028,8 @@ You should have received a copy of the GNU General Public License along with thi
 				editor.keyup(function(event){
 					var wordCount = methods.getWordCount.apply(editor_Content);
 					var charCount = methods.getCharCount.apply(editor_Content);
-					$(editor_Content).data("statusBar").html('<div class="label">'+'Words : '+wordCount+'</div>');
-					$(editor_Content).data("statusBar").append('<div class="label">'+'Characters : '+charCount+'</div>');
+					$(editor_Content).data("statusBar").html('<div class="label">'+'Palabras : '+wordCount+'</div>');
+					$(editor_Content).data("statusBar").append('<div class="label">'+'Caracteres : '+charCount+'</div>');
             	});
 	        }	        
 	       	
@@ -1357,11 +1357,11 @@ You should have received a copy of the GNU General Public License along with thi
 									                		class:"btn btn-default",
 									                		"data-dismiss":"modal",
 									                		"aria-hidden":"true"
-									               			}).html('Cancel')
+									               			}).html('Cancelar')
 								           	  			).append($('<button/>',{
 								                			type:"button",
 								                			class:"btn btn-success",
-								               				}).html('Done').mousedown(function(e){
+								               				}).html('Aceptar').mousedown(function(e){
 								                			e.preventDefault();
 								               				}).click(function(obj){return function(){onSave.apply(obj)}}(this)))
 	         								  		)

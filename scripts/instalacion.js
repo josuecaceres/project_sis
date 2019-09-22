@@ -31,6 +31,7 @@ function crear(){
         }
 }
 
-function redireccionar() {
-    location.href = "bienvenida.html";
-}
+let hid = document.querySelector("#config").value
+hid === 'instalacion'
+    ? function redireccionar() {location.href = "bienvenida.html";}
+    : null

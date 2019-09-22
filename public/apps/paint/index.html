@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Paint Canvas</title>
-  <link rel="stylesheet" href="./style.css">
+	<meta charset="UTF-8">
+	<title>Paint Canvas</title>
+	<link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<table>
-			<tr>
-				<td><canvas width="500" height="500" id="canvas" onmousemove="pintar(event);" onmousedown="activar();" onmouseup="desactivar();"></canvas></td>
-				<td class="herramientas">
-					<a href="#" onclick="lapiz();"><img src="lapiz.png" /></a> <a href="#" onclick="borrador();"><img src="borrador.png" /></a>
-					<div style="width: 10px; height: 10px;" onclick="stamano(10);" id="tamaños"></div><br />
-					<div style="width: 20px; height: 20px;" onclick="stamano(20);" id="tamaños"></div><br />
-					<div style="width: 30px; height: 30px;" onclick="stamano(30);" id="tamaños"></div><br />
-					<div style="width: 40px; height: 40px;" onclick="stamano(40);" id="tamaños"></div><br />
-					<input type="color" id="colores" onchange="scolor();"/>
-					<br>
-					<br>
-					<br>
-					<a href="#" download="canvas.png" id="guardarimagen">Guardar como imagen</a>
-				</td>
-			</tr>
-		</table>
-		<script>
-			
-		</script>
-<!-- partial -->
-  <script  src="./script.js"></script>
+	<!-- partial:index.partial.html -->
+	<table>
+		<tr>
+			<td><canvas width="500" height="500" id="canvas" onmousemove="pintar(event);" onmousedown="activar();"
+					onmouseup="desactivar();"></canvas></td>
+			<td class="herramientas">
+				<p onclick="lapiz();"><img src="lapiz.png" /></p> 
+				<p onclick="borrador();"><img src="borrador.png" /></p>
+				<div style="width: 10px; height: 10px;" onclick="stamano(10);" id="tamaños"></div><br />
+				<div style="width: 20px; height: 20px;" onclick="stamano(20);" id="tamaños"></div><br />
+				<div style="width: 30px; height: 30px;" onclick="stamano(30);" id="tamaños"></div><br />
+				<div style="width: 40px; height: 40px;" onclick="stamano(40);" id="tamaños"></div><br />
+				<input type="color" id="colores" onchange="scolor();" />
+				<br>
+				<br>				
+				<!--<a href="#" download="canvas.png" id="guardarimagen">Guardar como imagen</a>-->
+			</td>
+		</tr>
+	</table>
+	<script>
+
+	</script>
+	<!-- partial -->
+	<script src="./script.js"></script>
 
 </body>
+
 </html>

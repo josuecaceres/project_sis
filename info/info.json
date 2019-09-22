@@ -1,13 +1,13 @@
 {
     "equipo": {
-        "nombre_equipo": "EJC-PC"
+        "nombre_equipo": ""
     },
     "usuario_1": {
-        "nombre_usuario": "EJC17",
+        "nombre_usuario": "Josue",
         "password": "1234",
-        "password_indi": "1+4",
-        "avatar" : "../media/user2.jpg",
-        "fondo": "../media/fondo8.png",
-        "fondo_block": "../media/fondo5.jpg"
+        "password_indi": "",
+        "avatar": "..\/media\/user2.jpg",
+        "fondo": "..\/media\/fondo5.jpg",
+        "fondo_block": "..\/media\/fondo3.jpg"
     }
 }

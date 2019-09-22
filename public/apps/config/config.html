@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/stilo.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="" method="" id="form_ajax" autocomplete="off">
+            <div class="row form-group">
+                <label for="equipo" class="col-form-label col-md-4 text-primary">Nombre-Equipo</label>
+                <div class="col-md-8">
+                    <input type="text" name="nombre_equipo" value="" id="equipo" class="form-control" required>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="nombre" class="col-form-label col-md-4 text-primary">Nombre-Usuario</label>
+                <div class="col-md-8">
+                    <input type="text" name="nombre_usu" value="" id="nombre" class="form-control" required>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="password" class="col-form-label col-md-4 text-primary">Contraseña</label>
+                <div class="col-md-8">
+                    <input type="text" name="password" value="" id="password" class="form-control" required>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="input type text" class="col-form-label col-md-4 text-primary">Indicio-Contraseña</label>
+                <div class="col-md-8">
+                    <input type="text" name="password_indi" value="" id="password_indi" class="form-control" required>        
+                </div>
+            </div>
+            <p class="text-danger text-center mt-3" id="alert"
+                style="display: none; font-size: 20px; font-weight: bold;">
+                Todos los campos son Obligatorioa</p>
+            <center><button type="button" id="registro" class="btn btn-outline-info btn-lg">Confirmar <span
+                        class="spinner-grow spinner-grow" style="display: none;" role="status"
+                        aria-hidden="true"></span></button></center>
+        </form>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const xhttp = new XMLHttpRequest()
+            xhttp.open("GET", "../../../info/info.json", true)
+            xhttp.send()
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    let dato = JSON.parse(this.responseText)
+                    let eq = document.querySelector('#equipo'),
+                        nom = document.querySelector("#nombre"),
+                        pass = document.querySelector("#password"),
+                        pass_ind = document.querySelector("#password_indi")
+                    
+                    eq.value = dato.equipo.nombre_equipo
+                    nom.value = dato.usuario_1.nombre_usuario
+                    pass.value = dato.usuario_1.password
+                    pass_ind.value = dato.usuario_1.password_indi
+                }
+            }
+        });
+    </script>
+    <script src="js/set.js"></script>
+    <script src="../../../php/instalacion.php"></script>
+</body>
+
+</html>

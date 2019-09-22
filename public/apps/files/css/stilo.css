@@ -1,0 +1,30 @@
+body{
+    background-color: rgb(255, 255, 255, .5);
+}
+.container-fluid{
+    background: none;
+    border-radius: 0.75em;
+}
+.carpetas {
+    list-style: none;
+    padding-left: 15px;
+    margin-bottom: 32px;
+}
+
+.carpetas li a{
+    color: #000;
+    cursor: pointer;
+    line-height: 2;
+    font-weight: bold;
+}
+.carpetas li a:hover{
+    color: #007bff;
+}
+
+.carpetas li:last-child {
+    margin-bottom: 100px;
+}
+.archivos{
+    height: 400px;
+    overflow: auto;
+}

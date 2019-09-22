@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Plyr Demo</title>
+  <link rel='stylesheet' href='css/plyr.css'>
+  <link rel="stylesheet" href="css/style0.css">
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div class="container">
+    <video controls crossorigin playsinline id="player">
+      <!-- Video files -->
+      <source src=" " type="video/mp4" class="fuente">
+
+      <!-- Caption files -->
+
+
+      <!-- Fallback for browsers that don't support the <video> element -->
+
+    </video>
+
+    <div class="actions">
+      <button type="button" class="btn js-play">Play</button>
+      <button type="button" class="btn js-pause">Pause</button>
+      <button type="button" class="btn js-stop">Stop</button>
+      <button type="button" class="btn js-rewind">Rewind</button>
+      <button type="button" class="btn js-forward">Forward</button>
+    </div>
+  </div>
+  <!-- partial -->
+  <script src='js/plyr.js'></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    window.addEventListener('load', () => {
+        const xhttp = new XMLHttpRequest()
+        xhttp.open("GET", "./lista.json", true)
+        xhttp.send()
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                const rootStyles = document.documentElement.style
+                let dato = JSON.parse(this.responseText)
+
+                let ruta = document.querySelector(".fuente")                
+                ruta.src = dato.ruta.src
+                console.log(ruta.src)
+            }
+        }
+    });
+  </script>
+
+</body>
+
+</html>
